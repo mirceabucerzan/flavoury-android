@@ -46,4 +46,10 @@ dependencies {
     testImplementation "junit:junit:$versions.junit"
     androidTestImplementation "androidx.test:runner:$versions.androidx_test_runner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$versions.androidx_espresso_core"
+
+    // Material Design Components
+    implementation "com.google.android.material:material:$versions.material"
+
+    // Constraint Layout
+    implementation "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
 }
