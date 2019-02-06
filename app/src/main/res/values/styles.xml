@@ -3,6 +3,7 @@
     <!-- Base application theme. -->
     <style name="FlavouryTheme" parent="Theme.MaterialComponents.NoActionBar">
 
+        <!-- Color -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
@@ -22,6 +23,10 @@
 
         <item name="android:statusBarColor">@color/statusBarColor</item>
         <item name="android:navigationBarColor">@color/navigationBarColor</item>
+
+        <!-- Typography -->
+        <item name="android:fontFamily">@font/rubik_font_family</item>
+        <item name="fontFamily">@font/rubik_font_family</item>
 
     </style>
 
