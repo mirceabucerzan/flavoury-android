@@ -2,7 +2,6 @@
 
     <!-- Base application theme. -->
     <style name="FlavouryTheme" parent="Theme.MaterialComponents.NoActionBar">
-
         <!-- Color -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
@@ -28,6 +27,26 @@
         <item name="android:fontFamily">@font/rubik_font_family</item>
         <item name="fontFamily">@font/rubik_font_family</item>
 
+        <!-- Shape -->
+        <item name="shapeAppearanceSmallComponent">@style/FlavouryShapeAppearanceSmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/FlavouryShapeAppearanceMediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/FlavouryShapeAppearanceLargeComponent</item>
+    </style>
+
+    <!-- Shape appearance styles -->
+    <style name="FlavouryShapeAppearanceSmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/global_shape_corner_size</item>
+    </style>
+
+    <style name="FlavouryShapeAppearanceMediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/global_shape_corner_size</item>
+    </style>
+
+    <style name="FlavouryShapeAppearanceLargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/global_shape_corner_size</item>
     </style>
 
 </resources>
