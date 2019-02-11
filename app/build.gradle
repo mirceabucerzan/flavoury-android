@@ -52,4 +52,7 @@ dependencies {
 
     // Constraint Layout
     implementation "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+
+    // Timber - logging
+    implementation "com.jakewharton.timber:timber:$versions.timber"
 }

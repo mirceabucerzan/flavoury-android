@@ -33,3 +33,6 @@ versions.material = '1.1.0-alpha03'
 
 // Constraint Layout
 versions.constraint_layout = '1.1.3'
+
+// Timber - logging
+versions.timber = '4.7.1'
