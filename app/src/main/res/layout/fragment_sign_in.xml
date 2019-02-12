@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/sign_in_flavoury_logo"
+        style="@style/FlavouryLogoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/global_margin_medium"
+        android:layout_marginEnd="@dimen/global_margin_medium"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toTopOf="@+id/sign_in_horizontal_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sign_in_horizontal_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_in_now_button"
+        style="@style/FlavouryButtonSecondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/global_margin_medium"
+        android:layout_marginEnd="@dimen/global_margin_medium"
+        android:layout_marginBottom="@dimen/global_margin_medium"
+        android:minWidth="@dimen/sign_in_button_min_width"
+        android:minHeight="@dimen/sign_in_button_min_height"
+        android:text="@string/sign_in_now_button"
+        app:layout_constraintBottom_toTopOf="@id/sign_in_later_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_privacy_terms_text"
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_in_later_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/sign_in_button_min_height"
+        android:text="@string/sign_in_later_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sign_in_now_button"
+        app:layout_constraintStart_toStartOf="@+id/sign_in_now_button"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_now_button" />
+
+    <ImageView
+        android:id="@+id/sign_in_background_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/sign_in_masked_image_content_desc"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sign_in_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sign_in_horizontal_guideline" />
+
+    <View
+        android:id="@+id/sign_in_background_image_overlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/sign_in_background_gradient"
+        app:layout_constraintBottom_toBottomOf="@+id/sign_in_background_image"
+        app:layout_constraintEnd_toEndOf="@+id/sign_in_background_image"
+        app:layout_constraintStart_toStartOf="@+id/sign_in_background_image"
+        app:layout_constraintTop_toTopOf="@+id/sign_in_background_image" />
+
+    <TextView
+        android:id="@+id/sign_in_benefit_text"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/global_margin_medium"
+        android:layout_marginTop="@dimen/global_margin_medium"
+        android:layout_marginEnd="@dimen/global_margin_medium"
+        android:gravity="center"
+        android:text="@string/sign_in_benefit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sign_in_horizontal_guideline" />
+
+    <TextView
+        android:id="@+id/sign_in_privacy_terms_text"
+        style="@style/TextAppearance.MaterialComponents.Body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/global_margin_medium"
+        android:layout_marginTop="@dimen/global_margin_medium"
+        android:layout_marginEnd="@dimen/global_margin_medium"
+        android:gravity="center"
+        android:text="@string/sign_in_privacy_terms_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in_benefit_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

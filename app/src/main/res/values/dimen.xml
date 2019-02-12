@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Global dimensions -->
     <dimen name="global_shape_corner_size">12dp</dimen>
+    <dimen name="global_layout_container_padding">16dp</dimen>
+    <dimen name="global_margin_medium">16dp</dimen>
+    <dimen name="global_margin_large">32dp</dimen>
+
+    <!-- Sign In -->
+    <dimen name="sign_in_button_min_width">250dp</dimen>
+    <dimen name="sign_in_button_min_height">52dp</dimen>
 
 </resources>

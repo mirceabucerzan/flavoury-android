@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion versions.compile_sdk
@@ -51,8 +52,12 @@ dependencies {
     implementation "com.google.android.material:material:$versions.material"
 
     // Constraint Layout
-    implementation "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
 
     // Timber - logging
     implementation "com.jakewharton.timber:timber:$versions.timber"
+
+    // Navigation
+    implementation "android.arch.navigation:navigation-fragment:$versions.navigation"
+    implementation "android.arch.navigation:navigation-ui:$versions.navigation"
 }
