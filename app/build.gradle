@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion versions.compile_sdk
@@ -25,7 +26,6 @@ android {
 
         debug {
             debuggable true
-            applicationIdSuffix ".debug"
             versionNameSuffix "-dev"
             minifyEnabled false
             shrinkResources false
@@ -60,4 +60,7 @@ dependencies {
     // Navigation
     implementation "android.arch.navigation:navigation-fragment:$versions.navigation"
     implementation "android.arch.navigation:navigation-ui:$versions.navigation"
+
+    // Firebase
+    implementation "com.google.firebase:firebase-core:$versions.firebase_core"
 }

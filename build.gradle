@@ -14,6 +14,9 @@ buildscript {
 
         // Navigation SafeArgs plugin
         classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
+
+        // Google Services plugin
+        classpath "com.google.gms:google-services:$versions.google_services"
     }
 }
 
