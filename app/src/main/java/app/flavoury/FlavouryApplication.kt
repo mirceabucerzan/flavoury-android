@@ -1,7 +1,7 @@
 package app.flavoury
 
 import android.app.Application
-import app.flavoury.logging.TimberInitializerImpl
+import app.flavoury.core.logging.TimberInitializerImpl
 
 /**
  * Application class used to perform global initialization:

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="app.flavoury.signin.ui.SignInFragment"
+        android:name="app.flavoury.signin.presentation.SignInFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_sign_in" />
 </navigation>

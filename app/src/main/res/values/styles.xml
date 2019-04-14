@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="FlavouryTheme" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Color -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
@@ -28,32 +28,37 @@
         <item name="fontFamily">@font/rubik_font_family</item>
 
         <!-- Widgets -->
-        <item name="materialButtonStyle">@style/FlavouryButton</item>
+        <item name="materialButtonStyle">@style/AppButton</item>
 
         <!-- Shape -->
-        <item name="shapeAppearanceSmallComponent">@style/FlavouryShapeAppearanceSmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/FlavouryShapeAppearanceMediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/FlavouryShapeAppearanceLargeComponent</item>
+        <item name="shapeAppearanceSmallComponent">@style/AppShapeAppearanceSmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/AppShapeAppearanceMediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/AppShapeAppearanceLargeComponent</item>
+
+        <!-- Dialogs -->
+        <item name="alertDialogTheme">@style/AppDialog</item>
+        <item name="materialAlertDialogTheme">@style/AppDialog</item>
+
     </style>
 
     <!-- Shape appearance styles -->
-    <style name="FlavouryShapeAppearanceSmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+    <style name="AppShapeAppearanceSmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/global_shape_corner_size</item>
     </style>
 
-    <style name="FlavouryShapeAppearanceMediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+    <style name="AppShapeAppearanceMediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/global_shape_corner_size</item>
     </style>
 
-    <style name="FlavouryShapeAppearanceLargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+    <style name="AppShapeAppearanceLargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/global_shape_corner_size</item>
     </style>
 
     <!-- Logo style -->
-    <style name="FlavouryLogoText" parent="TextAppearance.MaterialComponents.Headline2">
+    <style name="AppLogoText" parent="TextAppearance.MaterialComponents.Headline2">
         <item name="android:textColor">@color/colorSecondary</item>
         <item name="fontFamily">@font/architects_daughter_regular</item>
         <item name="android:fontFamily">@font/architects_daughter_regular</item>
@@ -62,14 +67,25 @@
     </style>
 
     <!-- Button styles -->
-    <style name="FlavouryButton" parent="Widget.MaterialComponents.Button">
+    <style name="AppButton" parent="Widget.MaterialComponents.Button">
         <item name="android:textAllCaps">false</item>
     </style>
 
-    <style name="FlavouryButtonSecondary" parent="FlavouryButton">
+    <style name="AppButtonSecondary" parent="AppButton">
         <item name="backgroundTint">@color/colorSecondary</item>
         <item name="rippleColor">@color/colorOnSecondary</item>
         <item name="android:textColor">@color/colorOnSecondary</item>
     </style>
+
+    <style name="AppTextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/colorSecondary</item>
+    </style>
+
+    <!-- Dialog styles -->
+    <style name="AppDialog" parent="Theme.MaterialComponents.Dialog.Alert">
+        <item name="buttonBarButtonStyle">@style/AppTextButton</item>
+        <item name="dialogCornerRadius">@dimen/global_shape_corner_size</item>
+    </style>
+
 
 </resources>

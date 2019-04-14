@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply plugin: 'com.google.gms.google-services'
 
@@ -22,6 +23,9 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // Fields defined in the local {user}/.gradle/gradle.properties file
+            buildConfigField "String", "GOOGLE_OAUTH_2_WEB_CLIENT_ID", GOOGLE_OAUTH_2_WEB_CLIENT_ID
         }
 
         debug {
@@ -29,7 +33,14 @@ android {
             versionNameSuffix "-dev"
             minifyEnabled false
             shrinkResources false
+
+            // Fields defined in the local {user}/.gradle/gradle.properties file
+            buildConfigField "String", "GOOGLE_OAUTH_2_WEB_CLIENT_ID", GOOGLE_OAUTH_2_WEB_CLIENT_ID
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -57,10 +68,22 @@ dependencies {
     // Timber - logging
     implementation "com.jakewharton.timber:timber:$versions.timber"
 
+    // Lifecycle: ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+    kapt "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+
     // Navigation
-    implementation "android.arch.navigation:navigation-fragment:$versions.navigation"
-    implementation "android.arch.navigation:navigation-ui:$versions.navigation"
+    implementation "androidx.navigation:navigation-fragment:$versions.navigation"
+    implementation "androidx.navigation:navigation-ui:$versions.navigation"
 
     // Firebase
     implementation "com.google.firebase:firebase-core:$versions.firebase_core"
+    implementation "com.google.firebase:firebase-auth:$versions.firebase_auth"
+
+    // Google Play Services
+    implementation "com.google.android.gms:play-services-auth:$versions.google_play_services_auth"
+
+    // Kotlin Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlin_coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlin_coroutines"
 }

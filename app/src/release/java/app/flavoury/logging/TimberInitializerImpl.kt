@@ -1,5 +1,6 @@
 package app.flavoury.logging
 
+import app.flavoury.core.logging.TimberInitializer
 import timber.log.Timber
 
 /**
