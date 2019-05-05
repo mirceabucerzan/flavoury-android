@@ -1,4 +1,4 @@
-package app.flavoury.core
+package com.mirceabucerzan.core
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer

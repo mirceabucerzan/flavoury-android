@@ -1,4 +1,4 @@
-package app.flavoury.logging
+package com.mirceabucerzan.core
 
 import timber.log.Timber
 

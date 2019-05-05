@@ -1,4 +1,4 @@
-package app.flavoury.core
+package com.mirceabucerzan.core
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel

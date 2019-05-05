@@ -1,6 +1,6 @@
 package app.flavoury.signin.usecases
 
-import app.flavoury.core.UseCase
+import com.mirceabucerzan.core.UseCase
 import app.flavoury.signin.datasource.AuthProvider
 import app.flavoury.signin.datasource.SignInRepository
 import app.flavoury.signin.domain.User

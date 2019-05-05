@@ -2,12 +2,12 @@ package app.flavoury.signin.presentation
 
 import android.content.Intent
 import androidx.lifecycle.*
-import app.flavoury.core.Result
-import app.flavoury.core.UniqueEvent
 import app.flavoury.signin.domain.User
 import app.flavoury.signin.usecases.GoogleInitSignInUseCase
 import app.flavoury.signin.usecases.GooglePerformSignInUseCase
-import timber.log.Timber
+import com.mirceabucerzan.core.CoreLog
+import com.mirceabucerzan.core.Result
+import com.mirceabucerzan.core.UniqueEvent
 
 /**
  * [ViewModel] which triggers sign in initialization and execution. It also holds observable navigation events.
@@ -42,7 +42,7 @@ class SignInViewModel(
             when (result) {
                 is Result.Success -> {
                     // TODO Navigate to next feature
-                    Timber.d("Login success, user = ${user.value}")
+                    CoreLog.d("Login success, user = ${user.value}")
                     _navigateEvent.value = UniqueEvent(null)
                 }
                 is Result.Error -> {

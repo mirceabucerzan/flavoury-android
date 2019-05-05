@@ -1,4 +1,4 @@
-package app.flavoury.core
+package com.mirceabucerzan.core
 
 import android.app.Dialog
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import app.flavoury.core.AlertDialogFragment.Companion.newInstance
+import com.mirceabucerzan.core.AlertDialogFragment.Companion.newInstance
 
 /**
  * [DialogFragment] which displays an [AlertDialog]. See [newInstance] for dialog customization.

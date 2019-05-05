@@ -13,8 +13,8 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.mirceabucerzan.core.CoreLog
 import kotlinx.coroutines.suspendCancellableCoroutine
-import timber.log.Timber
 import kotlin.coroutines.resume
 
 /**
@@ -45,16 +45,16 @@ class GoogleFirebaseSignInDataSource(private val context: Context) : GoogleSignI
                     var user: User? = null
                     if (authResult.isSuccessful) user = FirebaseAuth.getInstance().currentUser?.toDomainUser()
                     if (user == null) {
-                        Timber.e("Google/Firebase sign in failed")
+                        CoreLog.e("Google/Firebase sign in failed")
                     } else {
-                        Timber.d("Google/Firebase sign in successful: $user")
+                        CoreLog.d("Google/Firebase sign in successful: $user")
                     }
                     continuation.resume(user)
                 }
             }
 
         } catch (e: ApiException) {
-            Timber.e(e, "Google/Firebase sign in failed")
+            CoreLog.e(e, "Google/Firebase sign in failed")
             return null
         }
     }

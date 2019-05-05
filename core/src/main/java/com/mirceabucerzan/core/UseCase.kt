@@ -1,8 +1,8 @@
-package app.flavoury.core
+package com.mirceabucerzan.core
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import app.flavoury.core.UseCase.OperationType
+import com.mirceabucerzan.core.UseCase.OperationType
 import kotlinx.coroutines.*
 import timber.log.Timber
 import kotlin.coroutines.CoroutineContext
