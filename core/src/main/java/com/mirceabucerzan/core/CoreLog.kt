@@ -105,6 +105,21 @@ class CoreLog {
             Timber.tag(getTag()).wtf(t)
         }
 
+        /** Log at `priority` a message with optional format args.  */
+        fun log(priority: Int, @NonNls message: String, vararg args: Any) {
+            Timber.tag(getTag()).log(priority, message, args)
+        }
+
+        /** Log at `priority` an exception and a message with optional format args.  */
+        fun log(priority: Int, t: Throwable, @NonNls message: String, vararg args: Any) {
+            Timber.tag(getTag()).log(priority, t, message, args)
+        }
+
+        /** Log at `priority` an exception.  */
+        fun log(priority: Int, t: Throwable) {
+            Timber.tag(getTag()).log(priority, t)
+        }
+
         /**
          * Copied from [Timber.DebugTree] because it is package-private and cannot be
          * overridden in [Timber.Tree] subclasses.
