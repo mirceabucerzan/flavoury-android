@@ -2,7 +2,7 @@ package app.flavoury.signin.framework
 
 import android.content.Context
 import android.content.Intent
-import app.flavoury.BuildConfig
+import app.flavoury.signin.BuildConfig
 import app.flavoury.signin.datasource.GoogleSignInDataSource
 import app.flavoury.signin.domain.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn

@@ -1,13 +1,16 @@
-package app.flavoury
+package app.flavoury.signin
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-class FlavouryActivity : AppCompatActivity() {
+/**
+ * The sign in feature's single entry point.
+ */
+class SignInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_flavoury)
+        setContentView(R.layout.activity_sign_in)
     }
 
 }

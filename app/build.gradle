@@ -1,9 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'androidx.navigation.safeargs.kotlin'
-apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion versions.compile_sdk
@@ -23,9 +19,6 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-            // Fields defined in the local {user}/.gradle/gradle.properties file
-            buildConfigField "String", "GOOGLE_OAUTH_2_WEB_CLIENT_ID", GOOGLE_OAUTH_2_WEB_CLIENT_ID
         }
 
         debug {
@@ -33,9 +26,6 @@ android {
             versionNameSuffix "-dev"
             minifyEnabled false
             shrinkResources false
-
-            // Fields defined in the local {user}/.gradle/gradle.properties file
-            buildConfigField "String", "GOOGLE_OAUTH_2_WEB_CLIENT_ID", GOOGLE_OAUTH_2_WEB_CLIENT_ID
         }
     }
 
@@ -45,7 +35,7 @@ android {
 }
 
 dependencies {
-    implementation project(':libraries:core')
+    implementation project(':features:sign_in')
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -54,7 +44,6 @@ dependencies {
 
     // AndroidX
     implementation "androidx.appcompat:appcompat:$versions.androidx_appcompat"
-    implementation "androidx.core:core-ktx:$versions.androidx_core_ktx"
 
     // Testing
     testImplementation "junit:junit:$versions.junit"
@@ -63,26 +52,4 @@ dependencies {
 
     // Material Design Components
     implementation "com.google.android.material:material:$versions.material"
-
-    // Constraint Layout
-    implementation "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
-
-    // Lifecycle: ViewModel and LiveData
-    implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
-    kapt "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
-
-    // Navigation
-    implementation "androidx.navigation:navigation-fragment:$versions.navigation"
-    implementation "androidx.navigation:navigation-ui:$versions.navigation"
-
-    // Firebase
-    implementation "com.google.firebase:firebase-core:$versions.firebase_core"
-    implementation "com.google.firebase:firebase-auth:$versions.firebase_auth"
-
-    // Google Play Services
-    implementation "com.google.android.gms:play-services-auth:$versions.google_play_services_auth"
-
-    // Kotlin Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlin_coroutines"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlin_coroutines"
 }

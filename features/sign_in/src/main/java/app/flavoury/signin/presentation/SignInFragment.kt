@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import app.flavoury.R
+import app.flavoury.signin.R
 import com.mirceabucerzan.core.AlertDialogFragment
 import com.mirceabucerzan.core.UniqueEventObserver
 import com.mirceabucerzan.core.getViewModel
-import app.flavoury.databinding.FragmentSignInBinding
+import app.flavoury.signin.databinding.FragmentSignInBinding
 import app.flavoury.signin.provideSignInViewModelFactory
 
 /**

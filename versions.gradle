@@ -44,7 +44,7 @@ versions.lifecycle = '2.0.0'
 versions.navigation = '2.0.0'
 
 // Google Services
-versions.google_services = '4.2.0'
+versions.google_services = '4.0.2'
 
 // Firebase
 versions.firebase_core = '16.0.7'

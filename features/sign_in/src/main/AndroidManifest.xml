@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="app.flavoury.signin">
+
+    <application>
+        <activity android:name=".SignInActivity" />
+    </application>
+
+</manifest>
