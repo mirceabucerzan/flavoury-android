@@ -14,6 +14,16 @@
         <item name="backgroundTint">?attr/colorSecondary</item>
         <item name="rippleColor">?attr/colorOnSecondary</item>
         <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="GoogleSignInButton" parent="AppButtonSecondary">
+        <item name="backgroundTint">@android:color/white</item>
+        <item name="icon">@drawable/google_logo</item>
+        <item name="iconTint">@null</item>
+        <item name="android:paddingStart">@dimen/sign_in_button_padding</item>
+        <item name="android:paddingEnd">@dimen/sign_in_button_padding</item>
+        <item name="iconPadding">@dimen/sign_in_button_icon_padding</item>
     </style>
 
 </resources>
