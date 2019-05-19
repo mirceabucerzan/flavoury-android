@@ -92,7 +92,7 @@
         <TextView
             android:id="@+id/sign_in_benefit_text"
             style="@style/TextAppearance.MaterialComponents.Body1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/global_margin_medium"
             android:layout_marginTop="@dimen/global_margin_medium"
@@ -106,7 +106,7 @@
         <TextView
             android:id="@+id/sign_in_privacy_terms_text"
             style="@style/TextAppearance.MaterialComponents.Body2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/global_margin_medium"
             android:layout_marginTop="@dimen/global_margin_medium"
