@@ -5,13 +5,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import app.flavoury.signin.SignInActivity
 
-class MainActivity : AppCompatActivity() {
+class LaunchpadActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // TODO Update to check if already signed in
-        startActivity(Intent(this, SignInActivity::class.java))
+        startActivity(Intent(this, SignInActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        })
     }
 
 }

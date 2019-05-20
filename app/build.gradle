@@ -36,6 +36,7 @@ android {
 
 dependencies {
     implementation project(':features:sign_in')
+    implementation project(':libraries:core')
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -49,7 +50,4 @@ dependencies {
     testImplementation "junit:junit:$versions.junit"
     androidTestImplementation "androidx.test:runner:$versions.androidx_test_runner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$versions.androidx_espresso_core"
-
-    // Material Design Components
-    implementation "com.google.android.material:material:$versions.material"
 }

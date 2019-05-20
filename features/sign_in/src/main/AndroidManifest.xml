@@ -2,7 +2,9 @@
     package="app.flavoury.signin">
 
     <application>
-        <activity android:name=".SignInActivity" />
+        <activity
+            android:name=".SignInActivity"
+            android:theme="@style/SignInActivityTheme" />
     </application>
 
 </manifest>

@@ -50,6 +50,9 @@ dependencies {
     // Timber - logging
     implementation "com.jakewharton.timber:timber:$versions.timber"
 
+    // Material Design Components
+    implementation "com.google.android.material:material:$versions.material"
+
     // Testing
     testImplementation "junit:junit:$versions.junit"
     androidTestImplementation "androidx.test:runner:$versions.androidx_test_runner"
