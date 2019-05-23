@@ -24,6 +24,11 @@ class CoreInitProvider : ContentProvider() {
             CoreLog.d("Planted Timber release tree")
         }
 
+        context?.let {
+            Actions.init(it)
+            CoreLog.d("Initialized the Actions object")
+        }
+
         return true
     }
 

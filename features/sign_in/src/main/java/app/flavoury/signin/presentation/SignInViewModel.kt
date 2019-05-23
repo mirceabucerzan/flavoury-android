@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import app.flavoury.signin.domain.User
 import app.flavoury.signin.usecases.GoogleInitSignInUseCase
 import app.flavoury.signin.usecases.GooglePerformSignInUseCase
+import app.flavoury.signin.usecases.SkipSignInUseCase
 import com.mirceabucerzan.core.CoreLog
 import com.mirceabucerzan.core.Result
 import com.mirceabucerzan.core.UniqueEvent
@@ -14,7 +15,8 @@ import com.mirceabucerzan.core.UniqueEvent
  */
 class SignInViewModel(
     private val googleInitSignInUseCase: GoogleInitSignInUseCase<Intent>,
-    private val googlePerformSignInUseCase: GooglePerformSignInUseCase<Intent>
+    private val googlePerformSignInUseCase: GooglePerformSignInUseCase<Intent>,
+    private val skipSignInUseCase: SkipSignInUseCase<Intent>
 ) : ViewModel() {
 
     private val googleInitIntent = MutableLiveData<Result<Intent>>()
@@ -57,6 +59,7 @@ class SignInViewModel(
     }
 
     fun skipSignIn() {
+        skipSignInUseCase(Unit)
         // TODO Navigate to next feature
         _navigateEvent.value = UniqueEvent(null)
     }
@@ -79,13 +82,14 @@ class SignInViewModel(
 
 class SignInViewModelFactory(
     private val googleInitSignInUseCase: GoogleInitSignInUseCase<Intent>,
-    private val googlePerformSignInUseCase: GooglePerformSignInUseCase<Intent>
+    private val googlePerformSignInUseCase: GooglePerformSignInUseCase<Intent>,
+    private val skipSignInUseCase: SkipSignInUseCase<Intent>
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SignInViewModel::class.java)) {
-            return SignInViewModel(googleInitSignInUseCase, googlePerformSignInUseCase) as T
+            return SignInViewModel(googleInitSignInUseCase, googlePerformSignInUseCase, skipSignInUseCase) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class $modelClass")
     }

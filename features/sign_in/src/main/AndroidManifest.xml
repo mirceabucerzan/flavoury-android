@@ -4,7 +4,12 @@
     <application>
         <activity
             android:name=".SignInActivity"
-            android:theme="@style/SignInActivityTheme" />
+            android:theme="@style/SignInActivityTheme">
+            <intent-filter>
+                <action android:name="app.flavoury.signin.open" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

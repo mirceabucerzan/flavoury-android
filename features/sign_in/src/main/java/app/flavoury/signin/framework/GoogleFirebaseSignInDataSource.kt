@@ -43,7 +43,7 @@ class GoogleFirebaseSignInDataSource(private val context: Context) : GoogleSignI
             return suspendCancellableCoroutine { continuation ->
                 FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener { authResult ->
                     var user: User? = null
-                    if (authResult.isSuccessful) user = FirebaseAuth.getInstance().currentUser?.toDomainUser()
+                    if (authResult.isSuccessful) user = getSignedInUser()
                     if (user == null) {
                         CoreLog.e("Google/Firebase sign in failed")
                     } else {
@@ -58,4 +58,7 @@ class GoogleFirebaseSignInDataSource(private val context: Context) : GoogleSignI
             return null
         }
     }
+
+    override fun getSignedInUser(): User? = FirebaseAuth.getInstance().currentUser?.toDomainUser()
+
 }
