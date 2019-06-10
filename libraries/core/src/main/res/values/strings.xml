@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">core</string>
+
+    <string name="generic_error_message">An error has occurred</string>
 </resources>

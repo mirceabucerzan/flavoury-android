@@ -1,6 +1,6 @@
 package app.flavoury.signin.datasource
 
-import app.flavoury.signin.domain.User
+import com.mirceabucerzan.core.domain.User
 
 /**
  * Repository that handles sign in data operations.

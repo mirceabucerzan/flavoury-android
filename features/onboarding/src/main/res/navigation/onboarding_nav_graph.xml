@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/onboarding_nav_graph"
+    app:startDestination="@id/loadingFragment">
+
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="app.flavoury.onboarding.presentation.LoadingFragment"
+        android:label="LoadingFragment"
+        tools:layout="@layout/fragment_loading">
+        <action
+            android:id="@+id/action_diet"
+            app:destination="@id/dietFragment"
+            app:popUpTo="@id/onboarding_nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dietFragment"
+        android:name="app.flavoury.onboarding.presentation.DietFragment"
+        android:label="DietFragment"
+        tools:layout="@layout/fragment_diet">
+        <argument
+            android:name="user"
+            app:argType="com.mirceabucerzan.core.domain.User" />
+    </fragment>
+</navigation>

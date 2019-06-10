@@ -1,3 +1,4 @@
 include ':app'
 include ':features:sign_in'
+include ':features:onboarding'
 include ':libraries:core'

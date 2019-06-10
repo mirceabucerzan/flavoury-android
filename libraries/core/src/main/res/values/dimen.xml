@@ -3,6 +3,8 @@
 
     <dimen name="global_shape_corner_size">12dp</dimen>
     <dimen name="global_layout_container_padding">16dp</dimen>
+    <dimen name="global_margin_extra_small">4dp</dimen>
+    <dimen name="global_margin_small">8dp</dimen>
     <dimen name="global_margin_medium">16dp</dimen>
     <dimen name="global_margin_large">32dp</dimen>
 

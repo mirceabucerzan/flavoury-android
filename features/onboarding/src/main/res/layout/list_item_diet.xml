@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/global_margin_large"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/onboarding_diet_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/onboarding_diet_image_content_desc"
+        tools:srcCompat="@drawable/icon_omnivore" />
+
+    <TextView
+        android:id="@+id/onboarding_diet_label"
+        style="@style/DietLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/onboarding_diet_omnivore_label" />
+
+</LinearLayout>

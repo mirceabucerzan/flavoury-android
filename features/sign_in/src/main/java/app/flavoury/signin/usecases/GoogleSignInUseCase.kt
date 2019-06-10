@@ -3,7 +3,7 @@ package app.flavoury.signin.usecases
 import com.mirceabucerzan.core.UseCase
 import app.flavoury.signin.datasource.AuthProvider
 import app.flavoury.signin.datasource.SignInRepository
-import app.flavoury.signin.domain.User
+import com.mirceabucerzan.core.domain.User
 
 /**
  * [UseCase] that triggers sign in initialization.

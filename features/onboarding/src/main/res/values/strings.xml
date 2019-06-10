@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">onboarding</string>
+
+    <string name="onboarding_loading_title">Please wait</string>
+    <string name="onboarding_diet_preference_title">Which diet suits you best?</string>
+    <string name="onboarding_next_button_label">Next</string>
+    <string name="onboarding_diet_omnivore_label">Omnivore</string>
+    <string name="onboarding_diet_vegetarian_label">Vegetarian</string>
+    <string name="onboarding_diet_vegan_label">Vegan</string>
+    <string name="onboarding_diet_paleo_label">Paleo</string>
+    <string name="onboarding_diet_image_content_desc">Diet image</string>
+</resources>

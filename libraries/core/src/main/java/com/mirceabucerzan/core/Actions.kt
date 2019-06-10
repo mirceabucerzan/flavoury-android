@@ -2,6 +2,8 @@ package com.mirceabucerzan.core
 
 import android.content.Context
 import android.content.Intent
+import com.mirceabucerzan.core.domain.EXTRA_USER
+import com.mirceabucerzan.core.domain.User
 
 /**
  * Class that provides implicit "open" intents for the app's different features.
@@ -10,6 +12,7 @@ object Actions {
 
     /* Intent filter actions for each feature's entry point activity */
     private const val ACTION_OPEN_SIGN_IN = "app.flavoury.signin.open"
+    private const val ACTION_OPEN_ONBOARDING = "app.flavoury.onboarding.open"
 
     private lateinit var packageName: String
 
@@ -20,7 +23,13 @@ object Actions {
         }
     }
 
-    fun openSignInIntent(flags: Int? = null) = internalIntent(ACTION_OPEN_SIGN_IN, flags)
+    fun openSignInIntent(flags: Int? = null): Intent =
+        internalIntent(ACTION_OPEN_SIGN_IN, flags)
+
+    fun openOnboardingIntent(user: User, flags: Int? = null): Intent {
+        return internalIntent(ACTION_OPEN_ONBOARDING, flags)
+            .putExtra(EXTRA_USER, user)
+    }
 
     /**
      * Returns an implicit [Intent] with the given action and flags, restricted to the application's package.

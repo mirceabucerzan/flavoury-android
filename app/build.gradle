@@ -36,6 +36,7 @@ android {
 
 dependencies {
     implementation project(':features:sign_in')
+    implementation project(':features:onboarding')
     implementation project(':libraries:core')
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
