@@ -1,4 +1,4 @@
-package com.mirceabucerzan.core
+package flavoury.libraries.core
 
 import android.content.ContentProvider
 import android.content.ContentValues
@@ -12,7 +12,7 @@ import timber.log.Timber
  * Will provide automatic init for clients, since it will be created before
  * all other Android components and it will be present in the merged manifest.
  */
-class CoreInitProvider : ContentProvider() {
+internal class CoreInitProvider : ContentProvider() {
 
     override fun onCreate(): Boolean {
         // Initialize Timber logging library

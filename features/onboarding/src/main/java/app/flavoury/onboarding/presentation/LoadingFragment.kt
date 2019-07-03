@@ -5,7 +5,7 @@ import app.flavoury.onboarding.R
 /**
  * View displaying an indeterminate loading indicator.
  */
-class LoadingFragment : OnboardingFragment() {
+internal class LoadingFragment : OnboardingFragment() {
 
     override val titleResId: Int
         get() = R.string.onboarding_loading_title

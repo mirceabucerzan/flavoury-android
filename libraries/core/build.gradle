@@ -3,32 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-android {
-    compileSdkVersion versions.compile_sdk
-
-    defaultConfig {
-        minSdkVersion versions.min_sdk
-        targetSdkVersion versions.target_sdk
-        versionCode versions.app_version_code
-        versionName versions.app_version_name
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            debuggable false
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-
-        debug {
-            debuggable true
-            versionNameSuffix "-dev"
-            minifyEnabled false
-        }
-    }
-}
-
 androidExtensions {
     experimental = true
 }
@@ -36,29 +10,20 @@ androidExtensions {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation Deps.kotlin_stdlib
+    implementation Deps.kotlin_coroutinesCore
+    implementation Deps.kotlin_coroutinesAndroid
 
-    // Kotlin Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlin_coroutines"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlin_coroutines"
+    implementation Deps.androidx_appCompat
+    implementation Deps.androidx_coreKtx
+    implementation Deps.androidx_lifecycleExtensions
+    kapt Deps.androidx_lifecycleCompiler
 
-    // AndroidX
-    implementation "androidx.core:core-ktx:$versions.androidx_core_ktx"
-    implementation "androidx.appcompat:appcompat:$versions.androidx_appcompat"
+    implementation Deps.google_materialDesign
 
-    // Lifecycle: ViewModel and LiveData
-    implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
-    kapt "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+    implementation Deps.logging_timber
 
-    // Timber - logging
-    implementation "com.jakewharton.timber:timber:$versions.timber"
-
-    // Material Design Components
-    implementation "com.google.android.material:material:$versions.material"
-
-    // Testing
-    testImplementation "junit:junit:$versions.junit"
-    androidTestImplementation "androidx.test:runner:$versions.androidx_test_runner"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.androidx_espresso_core"
+    testImplementation Deps.test_junit
+    androidTestImplementation Deps.test_androidx_testRunner
+    androidTestImplementation Deps.test_androidx_espressoCore
 }

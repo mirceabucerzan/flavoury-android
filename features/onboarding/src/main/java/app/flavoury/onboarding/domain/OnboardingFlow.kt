@@ -1,18 +1,25 @@
 package app.flavoury.onboarding.domain
 
-import com.mirceabucerzan.core.domain.*
+import flavoury.libraries.core.domain.*
 
 /**
  * Domain model for the Onboarding feature which contains the business logic for
  * determining the exact sequence of steps in the flow for a particular user.
  */
-class OnboardingFlow(user: User) {
+internal class OnboardingFlow(user: User) {
 
     val steps: List<Step>
 
     init {
         val onboardingSteps = mutableListOf<Step>()
-        onboardingSteps += Step.DietPreference(listOf(Omnivore(), Vegetarian(), Vegan(), Paleo()), user.diet)
+        onboardingSteps += Step.DietPreference(
+            listOf(
+                Omnivore(),
+                Vegetarian(),
+                Vegan(),
+                Paleo()
+            ), user.diet
+        )
         steps = onboardingSteps
     }
 
@@ -21,7 +28,7 @@ class OnboardingFlow(user: User) {
     }
 }
 
-sealed class Step {
+internal sealed class Step {
     /**
      * @property diets List of all the existing [Diet]s a user can choose from.
      * @property currentDiet The user's preferred [Diet].

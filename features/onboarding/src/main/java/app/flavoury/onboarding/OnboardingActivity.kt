@@ -8,17 +8,17 @@ import androidx.navigation.findNavController
 import app.flavoury.onboarding.presentation.FlowStep
 import app.flavoury.onboarding.presentation.LoadingFragmentDirections
 import app.flavoury.onboarding.presentation.OnboardingViewModel
-import com.mirceabucerzan.core.UniqueEventObserver
-import com.mirceabucerzan.core.domain.EXTRA_USER
-import com.mirceabucerzan.core.domain.User
-import com.mirceabucerzan.core.getViewModel
+import flavoury.libraries.core.UniqueEventObserver
+import flavoury.libraries.core.domain.EXTRA_USER
+import flavoury.libraries.core.domain.User
+import flavoury.libraries.core.getViewModel
 import kotlinx.android.synthetic.main.activity_onboarding.*
 
 /**
  * The onboarding feature's single entry point. Listens for flow step
  * changes and reacts by navigating to the appropriate Fragment.
  */
-class OnboardingActivity : AppCompatActivity() {
+internal class OnboardingActivity : AppCompatActivity() {
 
     private lateinit var user: User
 

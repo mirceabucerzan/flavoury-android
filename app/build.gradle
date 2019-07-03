@@ -2,30 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion versions.compile_sdk
-
     defaultConfig {
         applicationId "app.flavoury"
-        minSdkVersion versions.min_sdk
-        targetSdkVersion versions.target_sdk
-        versionCode versions.app_version_code
-        versionName versions.app_version_name
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionCode Config.android_appVersionCode
+        versionName Config.android_appVersionName
     }
 
     buildTypes {
         release {
-            debuggable false
-            minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-
-        debug {
-            debuggable true
-            versionNameSuffix "-dev"
-            minifyEnabled false
-            shrinkResources false
         }
     }
 
@@ -41,14 +26,11 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation Deps.kotlin_stdlib
 
-    // AndroidX
-    implementation "androidx.appcompat:appcompat:$versions.androidx_appcompat"
+    implementation Deps.androidx_appCompat
 
-    // Testing
-    testImplementation "junit:junit:$versions.junit"
-    androidTestImplementation "androidx.test:runner:$versions.androidx_test_runner"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.androidx_espresso_core"
+    testImplementation Deps.test_junit
+    androidTestImplementation Deps.test_androidx_testRunner
+    androidTestImplementation Deps.test_androidx_espressoCore
 }

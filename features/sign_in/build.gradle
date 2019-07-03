@@ -4,31 +4,13 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion versions.compile_sdk
-
-    defaultConfig {
-        minSdkVersion versions.min_sdk
-        targetSdkVersion versions.target_sdk
-        versionCode versions.app_version_code
-        versionName versions.app_version_name
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
     buildTypes {
         release {
-            debuggable false
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
             // Fields defined in the local {user}/.gradle/gradle.properties file
             buildConfigField "String", "GOOGLE_OAUTH_2_WEB_CLIENT_ID", GOOGLE_OAUTH_2_WEB_CLIENT_ID
         }
 
         debug {
-            debuggable true
-            versionNameSuffix "-dev"
-            minifyEnabled false
-
             // Fields defined in the local {user}/.gradle/gradle.properties file
             buildConfigField "String", "GOOGLE_OAUTH_2_WEB_CLIENT_ID", GOOGLE_OAUTH_2_WEB_CLIENT_ID
         }
@@ -44,35 +26,23 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    // AppCompat
-    implementation "androidx.appcompat:appcompat:$versions.androidx_appcompat"
+    implementation Deps.kotlin_coroutinesCore
+    implementation Deps.kotlin_coroutinesAndroid
 
-    // Ktx
-    implementation "androidx.core:core-ktx:$versions.androidx_core_ktx"
+    implementation Deps.androidx_appCompat
+    implementation Deps.androidx_coreKtx
+    implementation Deps.androidx_constraintLayout
+    implementation Deps.androidx_lifecycleExtensions
+    kapt Deps.androidx_lifecycleCompiler
 
-    // Testing
-    testImplementation "junit:junit:$versions.junit"
-    androidTestImplementation "androidx.test:runner:$versions.androidx_test_runner"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.androidx_espresso_core"
+    implementation Deps.google_materialDesign
 
-    // Material Design Components
-    implementation "com.google.android.material:material:$versions.material"
+    implementation Deps.firebase_core
+    implementation Deps.firebase_auth
 
-    // Constraint Layout
-    implementation "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+    implementation Deps.google_playServicesAuth
 
-    // Lifecycle: ViewModel and LiveData
-    implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
-    kapt "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
-
-    // Firebase
-    implementation "com.google.firebase:firebase-core:$versions.firebase_core"
-    implementation "com.google.firebase:firebase-auth:$versions.firebase_auth"
-
-    // Google Play Services
-    implementation "com.google.android.gms:play-services-auth:$versions.google_play_services_auth"
-
-    // Kotlin Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlin_coroutines"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlin_coroutines"
+    testImplementation Deps.test_junit
+    androidTestImplementation Deps.test_androidx_testRunner
+    androidTestImplementation Deps.test_androidx_espressoCore
 }

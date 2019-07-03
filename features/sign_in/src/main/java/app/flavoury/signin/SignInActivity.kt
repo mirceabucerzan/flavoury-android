@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 /**
  * The sign in feature's single entry point.
  */
-class SignInActivity : AppCompatActivity() {
+internal class SignInActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

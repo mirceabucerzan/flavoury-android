@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_onboarding.view.*
  * Base class for the Onboarding views. Displays a title up top, a
  * content placeholder in the middle and a button beneath it.
  */
-abstract class OnboardingFragment : Fragment() {
+internal abstract class OnboardingFragment : Fragment() {
 
     @get:StringRes
     protected abstract val titleResId: Int

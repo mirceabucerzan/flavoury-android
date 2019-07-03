@@ -1,4 +1,4 @@
-package com.mirceabucerzan.core
+package flavoury.libraries.core
 
 import android.os.Build
 import org.jetbrains.annotations.NonNls

@@ -4,12 +4,12 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import app.flavoury.onboarding.R
 import app.flavoury.onboarding.domain.Step
-import com.mirceabucerzan.core.domain.*
+import flavoury.libraries.core.domain.*
 
 /**
  * Ui model for the Diet Preference screen.
  */
-sealed class DietListItem(
+internal sealed class DietListItem(
     @StringRes val labelId: Int,
     @DrawableRes val imageId: Int,
     var selected: Boolean,
@@ -86,7 +86,7 @@ sealed class DietListItem(
 /**
  * Convert the [Step.DietPreference] domain model to the UI model.
  */
-fun Step.DietPreference.toDietListItems(): List<DietListItem> {
+internal fun Step.DietPreference.toDietListItems(): List<DietListItem> {
     return diets.map {
         it.toDietListItem().apply { selected = it == this@toDietListItems.currentDiet }
     }.sortedBy { it.displayIndex }
@@ -95,7 +95,7 @@ fun Step.DietPreference.toDietListItems(): List<DietListItem> {
 /**
  * Convert the [Diet] domain model to the UI model.
  */
-fun Diet.toDietListItem(): DietListItem {
+internal fun Diet.toDietListItem(): DietListItem {
     return when (this) {
         is Omnivore -> DietListItem.Omnivore()
         is Vegetarian -> DietListItem.Vegetarian()

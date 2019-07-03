@@ -1,4 +1,4 @@
-package com.mirceabucerzan.core
+package flavoury.libraries.core
 
 import android.app.Dialog
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import com.mirceabucerzan.core.AlertDialogFragment.Companion.newInstance
+import flavoury.libraries.core.AlertDialogFragment.Companion.newInstance
 
 /**
  * [DialogFragment] which displays an [AlertDialog]. See [newInstance] for dialog customization.
@@ -54,7 +54,7 @@ class AlertDialogFragment : DialogFragment() {
         }
     }
 
-    var listener: AlertClickListener? = null
+    private var listener: AlertClickListener? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val titleId: Int = arguments?.getInt(TITLE_ID_KEY) ?: -1

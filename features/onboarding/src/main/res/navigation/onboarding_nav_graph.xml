@@ -24,6 +24,6 @@
         tools:layout="@layout/fragment_diet">
         <argument
             android:name="user"
-            app:argType="com.mirceabucerzan.core.domain.User" />
+            app:argType="flavoury.libraries.core.domain.User" />
     </fragment>
 </navigation>

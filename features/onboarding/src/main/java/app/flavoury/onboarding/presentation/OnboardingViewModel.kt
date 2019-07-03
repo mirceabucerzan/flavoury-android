@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import app.flavoury.onboarding.domain.Step
 import app.flavoury.onboarding.usecases.OnboardingFlowUseCase
-import com.mirceabucerzan.core.Result
-import com.mirceabucerzan.core.UniqueEvent
-import com.mirceabucerzan.core.domain.User
+import flavoury.libraries.core.Result
+import flavoury.libraries.core.UniqueEvent
+import flavoury.libraries.core.domain.User
 
-class OnboardingViewModelFactory(
+internal class OnboardingViewModelFactory(
     private val user: User,
     private val onboardingFlowUseCase: OnboardingFlowUseCase
 ) : ViewModelProvider.Factory {
@@ -28,7 +28,7 @@ class OnboardingViewModelFactory(
 /**
  * ViewModel which holds and manages the UI data for the Onboarding feature.
  */
-class OnboardingViewModel(
+internal class OnboardingViewModel(
     user: User,
     private val onboardingFlowUseCase: OnboardingFlowUseCase
 ) : ViewModel() {
@@ -58,7 +58,8 @@ class OnboardingViewModel(
             }
         }
         _flowError.addSource(onboardingFlow) { result ->
-            if (result is Result.Error) _flowError.value = UniqueEvent(Unit)
+            if (result is Result.Error) _flowError.value =
+                UniqueEvent(Unit)
         }
 
         _dietListItems.addSource(onboardingFlow) { result ->
@@ -87,11 +88,11 @@ class OnboardingViewModel(
 /**
  * Flow step Ui model.
  */
-sealed class FlowStep {
+internal sealed class FlowStep {
     object Diet : FlowStep()
 }
 
-fun Step.toFlowStep(): FlowStep {
+internal fun Step.toFlowStep(): FlowStep {
     return when (this) {
         is Step.DietPreference -> FlowStep.Diet
     }

@@ -9,7 +9,7 @@ import app.flavoury.signin.datasource.LocalDataSource
 /**
  * Data source which uses [SharedPreferences] for storing its data.
  */
-class PreferenceDataSource(context: Context) : LocalDataSource {
+internal class PreferenceDataSource(context: Context) : LocalDataSource {
 
     companion object {
         private const val PREFS_NAME = "SIGN_IN_PREFERENCES"

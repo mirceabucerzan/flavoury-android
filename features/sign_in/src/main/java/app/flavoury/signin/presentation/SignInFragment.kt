@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import app.flavoury.signin.R
-import com.mirceabucerzan.core.AlertDialogFragment
-import com.mirceabucerzan.core.UniqueEventObserver
-import com.mirceabucerzan.core.getViewModel
+import flavoury.libraries.core.AlertDialogFragment
+import flavoury.libraries.core.UniqueEventObserver
+import flavoury.libraries.core.getViewModel
 import app.flavoury.signin.databinding.FragmentSignInBinding
 import app.flavoury.signin.provideSignInViewModelFactory
 
@@ -18,7 +18,7 @@ import app.flavoury.signin.provideSignInViewModelFactory
  * View that displays the sign in UI, forwards user events to its associated
  * ViewModel and reacts to the navigation/error events held by it.
  */
-class SignInFragment : Fragment() {
+internal class SignInFragment : Fragment() {
 
     companion object {
         private const val START_ACTIVITY_REQUEST_CODE = 7

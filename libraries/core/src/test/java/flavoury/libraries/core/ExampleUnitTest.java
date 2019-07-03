@@ -1,4 +1,4 @@
-package com.mirceabucerzan.core;
+package flavoury.libraries.core;
 
 import org.junit.Test;
 

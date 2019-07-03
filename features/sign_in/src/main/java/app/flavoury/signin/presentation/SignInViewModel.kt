@@ -5,16 +5,16 @@ import androidx.lifecycle.*
 import app.flavoury.signin.usecases.GoogleInitSignInUseCase
 import app.flavoury.signin.usecases.GooglePerformSignInUseCase
 import app.flavoury.signin.usecases.SkipSignInUseCase
-import com.mirceabucerzan.core.Actions
-import com.mirceabucerzan.core.CoreLog
-import com.mirceabucerzan.core.Result
-import com.mirceabucerzan.core.UniqueEvent
-import com.mirceabucerzan.core.domain.User
+import flavoury.libraries.core.Actions
+import flavoury.libraries.core.CoreLog
+import flavoury.libraries.core.Result
+import flavoury.libraries.core.UniqueEvent
+import flavoury.libraries.core.domain.User
 
 /**
  * [ViewModel] which triggers sign in initialization and execution. It also holds observable navigation events.
  */
-class SignInViewModel(
+internal class SignInViewModel(
     private val googleInitSignInUseCase: GoogleInitSignInUseCase<Intent>,
     private val googlePerformSignInUseCase: GooglePerformSignInUseCase<Intent>,
     private val skipSignInUseCase: SkipSignInUseCase<Intent>
@@ -49,7 +49,12 @@ class SignInViewModel(
             when (result) {
                 is Result.Success -> {
                     CoreLog.d("Login success, user = ${user.value}")
-                    _navigateEvent.value = UniqueEvent(Actions.openOnboardingIntent(result.data, FLAGS_NEW_TASK))
+                    _navigateEvent.value = UniqueEvent(
+                        Actions.openOnboardingIntent(
+                            result.data,
+                            FLAGS_NEW_TASK
+                        )
+                    )
                 }
                 is Result.Error -> {
                     _errorEvent.value = UniqueEvent(Unit)
@@ -84,7 +89,7 @@ class SignInViewModel(
 
 }
 
-class SignInViewModelFactory(
+internal class SignInViewModelFactory(
     private val googleInitSignInUseCase: GoogleInitSignInUseCase<Intent>,
     private val googlePerformSignInUseCase: GooglePerformSignInUseCase<Intent>,
     private val skipSignInUseCase: SkipSignInUseCase<Intent>

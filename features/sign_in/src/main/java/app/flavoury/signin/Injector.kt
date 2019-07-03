@@ -16,8 +16,8 @@ import app.flavoury.signin.usecases.SkipSignInUseCase
  * Basic functions for dependency injection. Temporary, until Dagger is added.
  */
 
-fun provideSignInViewModelFactory(context: Context): SignInViewModelFactory {
-    val repository = SignInRepository(provideGoogleSignInDataSource(context), provideLocalDataSource(context))
+internal fun provideSignInViewModelFactory(context: Context): SignInViewModelFactory {
+    val repository = provideSignInRepository(context)
     return SignInViewModelFactory(
         GoogleInitSignInUseCase(repository),
         GooglePerformSignInUseCase(repository),
@@ -25,8 +25,12 @@ fun provideSignInViewModelFactory(context: Context): SignInViewModelFactory {
     )
 }
 
-fun provideGoogleSignInDataSource(context: Context): GoogleSignInDataSource<Intent> {
+internal fun provideSignInRepository(context: Context): SignInRepository<Intent> {
+    return SignInRepository(provideGoogleSignInDataSource(context), provideLocalDataSource(context))
+}
+
+internal fun provideGoogleSignInDataSource(context: Context): GoogleSignInDataSource<Intent> {
     return GoogleFirebaseSignInDataSource(context)
 }
 
-fun provideLocalDataSource(context: Context): LocalDataSource = PreferenceDataSource(context)
+internal fun provideLocalDataSource(context: Context): LocalDataSource = PreferenceDataSource(context)

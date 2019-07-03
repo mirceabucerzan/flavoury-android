@@ -1,4 +1,4 @@
-package com.mirceabucerzan.core
+package flavoury.libraries.core
 
 import android.app.Activity
 import androidx.fragment.app.Fragment

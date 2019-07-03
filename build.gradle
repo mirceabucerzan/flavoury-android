@@ -1,7 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    apply from: 'versions.gradle'
     repositories {
         google()
         jcenter()
@@ -9,14 +8,11 @@ buildscript {
     dependencies {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath "com.android.tools.build:gradle:$versions.gradle"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+        classpath Deps.tools_gradleAndroid
+        classpath Deps.tools_gradleKotlinPlugin
 
-        // Navigation SafeArgs plugin
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
-
-        // Google Services plugin
-        classpath "com.google.gms:google-services:$versions.google_services"
+        classpath Deps.tools_androidx_navigationSafeArgsGradlePlugin
+        classpath Deps.tools_google_servicesGradlePlugin
     }
 }
 
@@ -24,6 +20,36 @@ allprojects {
     repositories {
         google()
         jcenter()
+    }
+}
+
+// Common configuration for all android modules
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion Config.android_compileSdk
+
+                defaultConfig {
+                    minSdkVersion Config.android_minSdk
+                    targetSdkVersion Config.android_targetSdk
+                    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+                }
+
+                buildTypes {
+                    release {
+                        debuggable false
+                        minifyEnabled true
+                        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                    }
+
+                    debug {
+                        debuggable true
+                        minifyEnabled false
+                    }
+                }
+            }
+        }
     }
 }
 

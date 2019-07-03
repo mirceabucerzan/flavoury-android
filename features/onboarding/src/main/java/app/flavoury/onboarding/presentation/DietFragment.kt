@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import app.flavoury.onboarding.R
 import app.flavoury.onboarding.provideOnboardingViewModelFactory
-import com.mirceabucerzan.core.getViewModel
+import flavoury.libraries.core.getViewModel
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.fragment_diet.*
 import kotlinx.android.synthetic.main.list_item_diet.*
@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.list_item_diet.*
 /**
  * View which displays the diets the user can choose from in a 2x2 grid.
  */
-class DietFragment : OnboardingFragment(), DietListAdapter.ItemSelectedListener {
+internal class DietFragment : OnboardingFragment(), DietListAdapter.ItemSelectedListener {
 
     companion object {
         private const val NUM_COLUMNS = 2
@@ -70,7 +70,7 @@ class DietFragment : OnboardingFragment(), DietListAdapter.ItemSelectedListener 
     }
 }
 
-class DietListAdapter(private val listener: ItemSelectedListener) :
+internal class DietListAdapter(private val listener: ItemSelectedListener) :
     ListAdapter<DietListItem, DietListItemViewHolder>(DIFF_CALLBACK) {
 
     interface ItemSelectedListener {
@@ -103,7 +103,7 @@ class DietListAdapter(private val listener: ItemSelectedListener) :
     }
 }
 
-class DietListItemViewHolder(view: View, private val listener: DietListAdapter.ItemSelectedListener) :
+internal class DietListItemViewHolder(view: View, private val listener: DietListAdapter.ItemSelectedListener) :
     RecyclerView.ViewHolder(view), LayoutContainer {
     override val containerView: View?
         get() = itemView

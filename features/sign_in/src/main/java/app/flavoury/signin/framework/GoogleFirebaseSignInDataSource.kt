@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import app.flavoury.signin.BuildConfig
 import app.flavoury.signin.datasource.GoogleSignInDataSource
-import com.mirceabucerzan.core.domain.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -13,14 +12,15 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.mirceabucerzan.core.CoreLog
+import flavoury.libraries.core.CoreLog
+import flavoury.libraries.core.domain.User
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 
 /**
  * Data source for Google Firebase sign in.
  */
-class GoogleFirebaseSignInDataSource(private val context: Context) : GoogleSignInDataSource<Intent> {
+internal class GoogleFirebaseSignInDataSource(private val context: Context) : GoogleSignInDataSource<Intent> {
 
     override fun getSignInInitData(): Intent {
         val signInOptions: GoogleSignInOptions.Builder =

@@ -1,10 +1,10 @@
-package com.mirceabucerzan.core.domain
+package flavoury.libraries.core.domain
 
 import android.net.Uri
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
-const val EXTRA_USER = "com.mirceabucerzan.extra.user"
+const val EXTRA_USER = "flavoury.libraries.core.extra.user"
 
 /**
  * Business model for a Flavoury user.

@@ -5,18 +5,18 @@ import app.flavoury.onboarding.datasource.UserDataSource
 import app.flavoury.onboarding.framework.FakeUserDataSource
 import app.flavoury.onboarding.presentation.OnboardingViewModelFactory
 import app.flavoury.onboarding.usecases.OnboardingFlowUseCase
-import com.mirceabucerzan.core.domain.User
+import flavoury.libraries.core.domain.User
 
 /**
  * Basic functions for dependency injection. Temporary, until Dagger is added.
  */
 
-fun provideOnboardingViewModelFactory(user: User): OnboardingViewModelFactory {
+internal fun provideOnboardingViewModelFactory(user: User): OnboardingViewModelFactory {
     return OnboardingViewModelFactory(user, provideOnboardingFlowUseCase())
 }
 
-fun provideOnboardingFlowUseCase() = OnboardingFlowUseCase(provideOnboardingRepository())
+internal fun provideOnboardingFlowUseCase() = OnboardingFlowUseCase(provideOnboardingRepository())
 
-fun provideOnboardingRepository() = OnboardingRepository(provideUserDataSource())
+internal fun provideOnboardingRepository() = OnboardingRepository(provideUserDataSource())
 
-fun provideUserDataSource(): UserDataSource = FakeUserDataSource()
+internal fun provideUserDataSource(): UserDataSource = FakeUserDataSource()

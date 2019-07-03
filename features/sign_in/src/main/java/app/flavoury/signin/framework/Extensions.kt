@@ -1,8 +1,8 @@
 package app.flavoury.signin.framework
 
 import com.google.firebase.auth.FirebaseUser
-import com.mirceabucerzan.core.domain.User
+import flavoury.libraries.core.domain.User
 
-fun FirebaseUser.toDomainUser(): User {
+internal fun FirebaseUser.toDomainUser(): User {
     return User(uid, displayName ?: "", email ?: "", photoUrl)
 }

@@ -1,9 +1,9 @@
 package app.flavoury.onboarding.datasource
 
 import app.flavoury.onboarding.domain.OnboardingFlow
-import com.mirceabucerzan.core.domain.User
+import flavoury.libraries.core.domain.User
 
-class OnboardingRepository(private val userDataSource: UserDataSource) {
+internal class OnboardingRepository(private val userDataSource: UserDataSource) {
 
     /**
      * Returns an [OnboardingFlow] based on previously saved user data, if present.
@@ -18,6 +18,6 @@ class OnboardingRepository(private val userDataSource: UserDataSource) {
 /**
  * Abstract data source for user data.
  */
-interface UserDataSource {
+internal interface UserDataSource {
     suspend fun getUser(uid: String): User?
 }

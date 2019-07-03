@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mirceabucerzan.core">
+    package="flavoury.libraries.core">
 
     <application>
         <provider
-            android:name=".CoreInitProvider"
+            android:name="flavoury.libraries.core.CoreInitProvider"
             android:authorities="${applicationId}.coreinitprovider"
             android:exported="false" />
     </application>

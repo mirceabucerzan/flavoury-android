@@ -1,14 +1,14 @@
 package app.flavoury.signin.usecases
 
-import com.mirceabucerzan.core.UseCase
 import app.flavoury.signin.datasource.AuthProvider
 import app.flavoury.signin.datasource.SignInRepository
-import com.mirceabucerzan.core.domain.User
+import flavoury.libraries.core.UseCase
+import flavoury.libraries.core.domain.User
 
 /**
  * [UseCase] that triggers sign in initialization.
  */
-class GoogleInitSignInUseCase<T>(private val signInRepository: SignInRepository<T>) : UseCase<Unit, T>() {
+internal class GoogleInitSignInUseCase<T>(private val signInRepository: SignInRepository<T>) : UseCase<Unit, T>() {
 
     override val operationType: OperationType
         get() = OperationType.Simple()
@@ -21,7 +21,7 @@ class GoogleInitSignInUseCase<T>(private val signInRepository: SignInRepository<
 /**
  * [UseCase] that triggers the actual sign in.
  */
-class GooglePerformSignInUseCase<T>(private val signInRepository: SignInRepository<T>) : UseCase<T, User>() {
+internal class GooglePerformSignInUseCase<T>(private val signInRepository: SignInRepository<T>) : UseCase<T, User>() {
 
     override val operationType: OperationType
         get() = OperationType.IO()
@@ -35,4 +35,4 @@ class GooglePerformSignInUseCase<T>(private val signInRepository: SignInReposito
 /**
  * [Exception] thrown if sign in fails.
  */
-class GoogleSignInException : RuntimeException()
+internal class GoogleSignInException : RuntimeException()

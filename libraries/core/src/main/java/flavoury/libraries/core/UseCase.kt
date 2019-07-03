@@ -1,8 +1,8 @@
-package com.mirceabucerzan.core
+package flavoury.libraries.core
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.mirceabucerzan.core.UseCase.OperationType
+import flavoury.libraries.core.UseCase.OperationType
 import kotlinx.coroutines.*
 import timber.log.Timber
 import kotlin.coroutines.CoroutineContext
@@ -55,7 +55,7 @@ abstract class UseCase<in P, R> : CoroutineScope {
     /**
      * Override this to specify the [OperationType] of the [UseCase].
      */
-    abstract val operationType: OperationType
+    protected abstract val operationType: OperationType
 
     override val coroutineContext: CoroutineContext
         get() = operationType.dispatcher + coroutineJob

@@ -1,11 +1,11 @@
 package app.flavoury.signin.datasource
 
-import com.mirceabucerzan.core.domain.User
+import flavoury.libraries.core.domain.User
 
 /**
  * Repository that handles sign in data operations.
  */
-class SignInRepository<T>(
+internal class SignInRepository<T>(
     private val googleSignInDataSource: GoogleSignInDataSource<T>,
     private val localDataSource: LocalDataSource
 ) {
@@ -39,14 +39,14 @@ class SignInRepository<T>(
         localDataSource.signInSkipped = true
     }
 
-    fun isSignInSkipped(): Boolean = localDataSource.signInSkipped
+    fun wasSignInSkipped(): Boolean = localDataSource.signInSkipped
 
 }
 
 /**
  * Abstract data source for sign in data.
  */
-interface GoogleSignInDataSource<T> {
+internal interface GoogleSignInDataSource<T> {
     fun getSignInInitData(): T
 
     suspend fun signIn(data: T): User?
@@ -57,13 +57,13 @@ interface GoogleSignInDataSource<T> {
 /**
  * Abstract data source for locally cached data.
  */
-interface LocalDataSource {
+internal interface LocalDataSource {
     var signInSkipped: Boolean
 }
 
 /**
  * Supported sign in auth providers.
  */
-sealed class AuthProvider {
+internal sealed class AuthProvider {
     object Google : AuthProvider()
 }
