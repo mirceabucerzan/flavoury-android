@@ -16,7 +16,8 @@ data class User(
     val email: String,
     val photoUrl: Uri?,
     val onboarded: Boolean = false,
-    val diet: Diet = Unknown()
+    val diet: Diet = Unknown(),
+    val intolerances: Set<Intolerance> = emptySet()
 ) : Parcelable
 
 sealed class Diet(val name: String) : Parcelable {
@@ -54,3 +55,55 @@ class Paleo : Diet(PALEO)
 
 @Parcelize
 class Unknown : Diet(UNKNOWN)
+
+sealed class Intolerance(val name: String) : Parcelable {
+    companion object {
+        const val DAIRY = "dairy"
+        const val EGG = "egg"
+        const val GLUTEN = "gluten"
+        const val NUT = "nut"
+        const val SESAME = "sesame"
+        const val SEAFOOD = "seafood"
+        const val SHELLFISH = "shellfish"
+        const val SOY = "soy"
+        const val WHEAT = "wheat"
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Intolerance) return false
+        if (name != other.name) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return name.hashCode()
+    }
+}
+
+@Parcelize
+class Dairy : Intolerance(DAIRY)
+
+@Parcelize
+class Egg : Intolerance(EGG)
+
+@Parcelize
+class Gluten : Intolerance(GLUTEN)
+
+@Parcelize
+class Nut : Intolerance(NUT)
+
+@Parcelize
+class Sesame : Intolerance(SESAME)
+
+@Parcelize
+class Seafood : Intolerance(SEAFOOD)
+
+@Parcelize
+class Shellfish : Intolerance(SHELLFISH)
+
+@Parcelize
+class Soy : Intolerance(SOY)
+
+@Parcelize
+class Wheat : Intolerance(WHEAT)

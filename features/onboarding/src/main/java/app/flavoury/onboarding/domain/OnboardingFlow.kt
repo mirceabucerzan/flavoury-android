@@ -13,13 +13,28 @@ internal class OnboardingFlow(user: User) {
     init {
         val onboardingSteps = mutableListOf<Step>()
         onboardingSteps += Step.DietPreference(
-            listOf(
+            setOf(
                 Omnivore(),
                 Vegetarian(),
                 Vegan(),
                 Paleo()
             ), user.diet
         )
+
+        onboardingSteps += Step.IntolerancesPreference(
+            setOf(
+                Dairy(),
+                Egg(),
+                Gluten(),
+                Nut(),
+                Sesame(),
+                Seafood(),
+                Shellfish(),
+                Soy(),
+                Wheat()
+            ), user.intolerances
+        )
+
         steps = onboardingSteps
     }
 
@@ -30,8 +45,17 @@ internal class OnboardingFlow(user: User) {
 
 internal sealed class Step {
     /**
-     * @property diets List of all the existing [Diet]s a user can choose from.
-     * @property currentDiet The user's preferred [Diet].
+     * @property allDiets Set of all the existing [Diet]s a user can choose from.
+     * @property userDiet The user's preferred [Diet].
      */
-    class DietPreference(val diets: List<Diet>, val currentDiet: Diet) : Step()
+    class DietPreference(val allDiets: Set<Diet>, val userDiet: Diet) : Step()
+
+    /**
+     * @property allIntolerances List of all the existing [Intolerance]s a user can choose from.
+     * @property userIntolerances The user's existing [Intolerance]s.
+     */
+    class IntolerancesPreference(
+        val allIntolerances: Set<Intolerance>,
+        val userIntolerances: Set<Intolerance>
+    ) : Step()
 }

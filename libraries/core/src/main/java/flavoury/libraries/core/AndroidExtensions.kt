@@ -19,6 +19,10 @@ inline fun <reified VM : ViewModel> Fragment.getViewModel(provider: ViewModelPro
     return ViewModelProviders.of(this, provider).get(VM::class.java)
 }
 
+inline fun <reified VM : ViewModel> Fragment.getActivityViewModel(provider: ViewModelProvider.Factory): VM {
+    return requireActivity().getViewModel(provider)
+}
+
 /**
  * [Activity] extensions
  */

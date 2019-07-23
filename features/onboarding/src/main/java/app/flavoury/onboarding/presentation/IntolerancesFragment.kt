@@ -11,16 +11,16 @@ import app.flavoury.onboarding.usecases.OnboardingListItem
 import kotlinx.android.synthetic.main.fragment_list.*
 
 /**
- * View which displays the diets the user can choose from in a 2x2 grid.
+ * View which displays the intolerances the user can choose from in a 3x3 grid.
  */
-internal class DietFragment : OnboardingFragment(), OnboardingListAdapter.ItemSelectedListener {
+internal class IntolerancesFragment : OnboardingFragment(), OnboardingListAdapter.ItemSelectedListener {
 
     companion object {
-        private const val NUM_COLUMNS = 2
+        private const val NUM_COLUMNS = 3
     }
 
     override val titleResId: Int
-        get() = R.string.onboarding_diet_preference_title
+        get() = R.string.onboarding_intolerances_preference_title
     override val buttonLabelResId: Int?
         get() = R.string.onboarding_next_button_label
     override val contentLayoutResId: Int
@@ -31,13 +31,13 @@ internal class DietFragment : OnboardingFragment(), OnboardingListAdapter.ItemSe
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val viewLayoutManager: RecyclerView.LayoutManager = GridLayoutManager(context, NUM_COLUMNS)
-        listAdapter = OnboardingListAdapter(this, true)
+        listAdapter = OnboardingListAdapter(this, false)
         onboarding_list.apply {
             layoutManager = viewLayoutManager
             adapter = listAdapter
         }
 
-        viewModel.dietListItems.observe(viewLifecycleOwner, Observer { listItems ->
+        viewModel.intoleranceListItems.observe(viewLifecycleOwner, Observer { listItems ->
             if (listItems.find { it.selected } != null) {
                 // once a selection is made, give the user the chance to advance the flow
                 showAdvanceButton()
@@ -49,6 +49,6 @@ internal class DietFragment : OnboardingFragment(), OnboardingListAdapter.ItemSe
     }
 
     override fun onItemSelected(item: OnboardingListItem) {
-        viewModel.selectDiet(item)
+        viewModel.selectIntolerance(item)
     }
 }

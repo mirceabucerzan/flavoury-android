@@ -8,6 +8,8 @@ import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import app.flavoury.onboarding.R
+import app.flavoury.onboarding.provideOnboardingViewModelFactory
+import flavoury.libraries.core.getActivityViewModel
 import kotlinx.android.synthetic.main.fragment_onboarding.*
 import kotlinx.android.synthetic.main.fragment_onboarding.view.*
 
@@ -26,6 +28,13 @@ internal abstract class OnboardingFragment : Fragment() {
     @get:LayoutRes
     protected abstract val contentLayoutResId: Int
 
+    protected lateinit var viewModel: OnboardingViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = getActivityViewModel(provideOnboardingViewModelFactory())
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root: View = inflater.inflate(R.layout.fragment_onboarding, container, false)
         root.onboarding_title.text = getString(titleResId)
@@ -33,6 +42,11 @@ internal abstract class OnboardingFragment : Fragment() {
         root.onboarding_content_container.layoutResource = contentLayoutResId
         root.onboarding_content_container.inflate()
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        onboarding_advance_button.setOnClickListener { viewModel.advanceFlow() }
     }
 
     fun showAdvanceButton() {

@@ -11,7 +11,7 @@
         android:label="LoadingFragment"
         tools:layout="@layout/fragment_loading">
         <action
-            android:id="@+id/action_diet"
+            android:id="@+id/action_loading_to_diet"
             app:destination="@id/dietFragment"
             app:popUpTo="@id/onboarding_nav_graph"
             app:popUpToInclusive="true" />
@@ -21,9 +21,16 @@
         android:id="@+id/dietFragment"
         android:name="app.flavoury.onboarding.presentation.DietFragment"
         android:label="DietFragment"
-        tools:layout="@layout/fragment_diet">
-        <argument
-            android:name="user"
-            app:argType="flavoury.libraries.core.domain.User" />
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_diet_to_intolerances"
+            app:destination="@id/intolerancesFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/intolerancesFragment"
+        android:name="app.flavoury.onboarding.presentation.IntolerancesFragment"
+        android:label="IntolerancesFragment"
+        tools:layout="@layout/fragment_list" />
+
 </navigation>

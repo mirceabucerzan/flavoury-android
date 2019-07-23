@@ -2,11 +2,22 @@
     <string name="app_name">onboarding</string>
 
     <string name="onboarding_loading_title">Please wait</string>
-    <string name="onboarding_diet_preference_title">Which diet suits you best?</string>
+    <string name="onboarding_diet_preference_title">Which describes you best?</string>
     <string name="onboarding_next_button_label">Next</string>
     <string name="onboarding_diet_omnivore_label">Omnivore</string>
     <string name="onboarding_diet_vegetarian_label">Vegetarian</string>
     <string name="onboarding_diet_vegan_label">Vegan</string>
     <string name="onboarding_diet_paleo_label">Paleo</string>
-    <string name="onboarding_diet_image_content_desc">Diet image</string>
+    <string name="onboarding_preference_image_content_desc">Food preference image</string>
+    <string name="onboarding_intolerances_preference_title">Anything you shouldn\'t eat?</string>
+    <string name="onboarding_intolerance_dairy_label">Dairy</string>
+    <string name="onboarding_intolerance_egg_label">Egg</string>
+    <string name="onboarding_intolerance_gluten_label">Gluten</string>
+    <string name="onboarding_intolerance_nut_label">Nut</string>
+    <string name="onboarding_intolerance_sesame_label">Sesame</string>
+    <string name="onboarding_intolerance_seafood_label">Seafood</string>
+    <string name="onboarding_intolerance_shellfish_label">Shellfish</string>
+    <string name="onboarding_intolerance_soy_label">Soy</string>
+    <string name="onboarding_intolerance_wheat_label">Wheat</string>
+
 </resources>
