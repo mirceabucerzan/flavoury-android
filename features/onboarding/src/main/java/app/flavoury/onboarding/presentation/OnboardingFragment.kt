@@ -46,7 +46,10 @@ internal abstract class OnboardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        onboarding_advance_button.setOnClickListener { viewModel.advanceFlow() }
+        onboarding_advance_button.setOnClickListener {
+            hideAdvanceButton()
+            viewModel.advanceOnboardingFlow()
+        }
     }
 
     fun showAdvanceButton() {
@@ -55,6 +58,16 @@ internal abstract class OnboardingFragment : Fragment() {
 
     fun hideAdvanceButton() {
         onboarding_advance_button.visibility = View.INVISIBLE
+    }
+
+    fun showAdvanceSecondaryButton(@StringRes labelId: Int, clickListener: () -> Unit) {
+        onboarding_advance_secondary_button.setText(labelId)
+        onboarding_advance_secondary_button.visibility = View.VISIBLE
+        onboarding_advance_secondary_button.setOnClickListener { clickListener() }
+    }
+
+    fun updateTitle(title: String) {
+        onboarding_title.text = title
     }
 
 }

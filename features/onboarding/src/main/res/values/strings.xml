@@ -25,5 +25,10 @@
     <string name="onboarding_all_done_text1">You can now enjoy Flavoury tailored to your tastes.</string>
     <string name="onboarding_all_done_text2">Our recipe recommendations will be based on your preferences.</string>
     <string name="onboarding_all_done_text3">You can always change these in the app\'s settings.</string>
+    <string name="onboarding_profile_image_content_desc">User profile image</string>
+    <string name="onboarding_welcome_back_title">Welcome back, %1$s!</string>
+    <string name="onboarding_welcome_back_text">Nice to see you again! Would you like to update your preferences or go directly to your recipes?</string>
+    <string name="onboarding_recipes_button_label">Go to my recipes</string>
+    <string name="onboarding_update_button_label">Update my preferences</string>
 
 </resources>

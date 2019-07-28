@@ -15,7 +15,6 @@ data class User(
     val fullName: String,
     val email: String,
     val photoUrl: Uri?,
-    val onboarded: Boolean = false,
     val diet: Diet = Unknown(),
     val intolerances: Set<Intolerance> = emptySet()
 ) : Parcelable

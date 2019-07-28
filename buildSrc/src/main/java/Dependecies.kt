@@ -30,6 +30,7 @@ object Versions {
     val firebase_auth = "16.2.0"
 
     val logging_timber = "4.7.1"
+    val glide = "4.9.0"
 }
 
 object Deps {
@@ -62,4 +63,5 @@ object Deps {
     val firebase_auth = "com.google.firebase:firebase-auth:${Versions.firebase_auth}"
 
     val logging_timber = "com.jakewharton.timber:timber:${Versions.logging_timber}"
+    val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 }

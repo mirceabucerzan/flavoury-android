@@ -1,5 +1,6 @@
 package app.flavoury.onboarding.presentation
 
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
@@ -46,6 +47,10 @@ internal class OnboardingViewModel(
     val error: LiveData<UniqueEvent<Unit>>
         get() = _error
 
+    private val _userNameAndPhoto = MediatorLiveData<Pair<String, Uri?>>()
+    val userNameAndPhoto: LiveData<Pair<String, Uri?>>
+        get() = _userNameAndPhoto
+
     /** UI model for the Diet preference view */
     private val _dietListItems = MediatorLiveData<List<OnboardingListItem>>()
     val dietListItems: LiveData<List<OnboardingListItem>>
@@ -67,13 +72,19 @@ internal class OnboardingViewModel(
         _navDirections.addSource(onboardingModel) { result ->
             if (result is Result.Success) {
                 flowSteps = result.data.flowSteps
-                advanceFlow()
+                advanceOnboardingFlow()
             }
         }
 
         _error.addSource(onboardingModel) { result ->
             if (result is Result.Error) _error.value =
                 UniqueEvent(Unit)
+        }
+
+        _userNameAndPhoto.addSource(onboardingModel) { result ->
+            if (result is Result.Success) {
+                _userNameAndPhoto.value = result.data.fullName to result.data.photoUrl
+            }
         }
 
         _dietListItems.addSource(onboardingModel) { result ->
@@ -89,20 +100,32 @@ internal class OnboardingViewModel(
         }
     }
 
-    fun advanceFlow() {
+    fun advanceOnboardingFlow() {
         if (++currentStepIndex == flowSteps.size) {
             // TODO Finish onboarding
             CoreLog.d("Onboarding finished.")
         } else if (currentStepIndex < flowSteps.size) {
             _navDirections.value = UniqueEvent(
                 when (flowSteps[currentStepIndex]) {
-                    is FlowStep.Diet -> LoadingFragmentDirections.actionLoadingToDiet()
+                    is FlowStep.WelcomeBack -> LoadingFragmentDirections.actionLoadingToWelcomeBack()
+                    is FlowStep.Diet -> {
+                        if ((flowSteps.firstOrNull { it is FlowStep.WelcomeBack }) != null) {
+                            WelcomeBackFragmentDirections.actionWelcomeBackToDiet()
+                        } else {
+                            LoadingFragmentDirections.actionLoadingToDiet()
+                        }
+                    }
                     is FlowStep.Intolerances -> DietFragmentDirections.actionDietToIntolerances()
                     is FlowStep.AllDone -> IntolerancesFragmentDirections.actionIntolerancesToAllDone()
                 }
             )
         }
 
+    }
+
+    fun advanceToRecipes() {
+        // TODO Finish onboarding
+        CoreLog.d("Onboarding finished.")
     }
 
     fun onBackPressed() {

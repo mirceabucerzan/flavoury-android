@@ -1,5 +1,7 @@
 package app.flavoury.onboarding.domain
 
+import android.net.Uri
+import flavoury.libraries.core.CoreLog
 import flavoury.libraries.core.domain.*
 
 /**
@@ -11,7 +13,14 @@ internal class OnboardingFlow(user: User) {
     val steps: List<Step>
 
     init {
+        CoreLog.d("OnboardingFlow init: user = $user")
         val onboardingSteps = mutableListOf<Step>()
+
+        if (user.diet !is Unknown) {
+            CoreLog.d("User already has a diet, adding welcome screen to the flow.")
+            onboardingSteps += Step.WelcomeBack(user.fullName, user.photoUrl)
+        }
+
         onboardingSteps += Step.DietPreference(
             setOf(
                 Omnivore(),
@@ -46,6 +55,13 @@ internal class OnboardingFlow(user: User) {
 }
 
 internal sealed class Step {
+
+    /**
+     * @property fullName The user's name.
+     * @property photoUrl The user's profile photo, or null.
+     */
+    class WelcomeBack(val fullName: String, val photoUrl: Uri?) : Step()
+
     /**
      * @property allDiets Set of all the existing [Diet]s a user can choose from.
      * @property userDiet The user's preferred [Diet].

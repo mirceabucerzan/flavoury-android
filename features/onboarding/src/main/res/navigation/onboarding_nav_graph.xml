@@ -6,6 +6,16 @@
     app:startDestination="@id/loadingFragment">
 
     <fragment
+        android:id="@+id/welcomeBackFragment"
+        android:name="app.flavoury.onboarding.presentation.WelcomeBackFragment"
+        android:label="WelcomeBackFragment"
+        tools:layout="@layout/fragment_welcome_back">
+        <action
+            android:id="@+id/action_welcomeBack_to_diet"
+            app:destination="@id/dietFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/loadingFragment"
         android:name="app.flavoury.onboarding.presentation.LoadingFragment"
         android:label="LoadingFragment"
@@ -13,6 +23,11 @@
         <action
             android:id="@+id/action_loading_to_diet"
             app:destination="@id/dietFragment"
+            app:popUpTo="@id/onboarding_nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loading_to_welcomeBack"
+            app:destination="@id/welcomeBackFragment"
             app:popUpTo="@id/onboarding_nav_graph"
             app:popUpToInclusive="true" />
     </fragment>

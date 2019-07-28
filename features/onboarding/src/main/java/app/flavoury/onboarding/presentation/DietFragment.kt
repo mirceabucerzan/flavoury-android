@@ -30,6 +30,7 @@ internal class DietFragment : OnboardingFragment(), OnboardingListAdapter.ItemSe
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        hideAdvanceButton()
         val viewLayoutManager: RecyclerView.LayoutManager = GridLayoutManager(context, NUM_COLUMNS)
         listAdapter = OnboardingListAdapter(this, true)
         onboarding_list.apply {

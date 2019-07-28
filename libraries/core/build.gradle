@@ -22,6 +22,7 @@ dependencies {
     implementation Deps.google_materialDesign
 
     implementation Deps.logging_timber
+    implementation Deps.glide
 
     testImplementation Deps.test_junit
     androidTestImplementation Deps.test_androidx_testRunner
