@@ -4,6 +4,7 @@
     <string name="onboarding_loading_title">Please wait</string>
     <string name="onboarding_diet_preference_title">Which describes you best?</string>
     <string name="onboarding_next_button_label">Next</string>
+    <string name="onboarding_finish_button_label">Finish</string>
     <string name="onboarding_diet_omnivore_label">Omnivore</string>
     <string name="onboarding_diet_vegetarian_label">Vegetarian</string>
     <string name="onboarding_diet_vegan_label">Vegan</string>
@@ -19,5 +20,10 @@
     <string name="onboarding_intolerance_shellfish_label">Shellfish</string>
     <string name="onboarding_intolerance_soy_label">Soy</string>
     <string name="onboarding_intolerance_wheat_label">Wheat</string>
+    <string name="onboarding_all_done_image_content_desc">Gears icon</string>
+    <string name="onboarding_all_done_title">You are all set!</string>
+    <string name="onboarding_all_done_text1">You can now enjoy Flavoury tailored to your tastes.</string>
+    <string name="onboarding_all_done_text2">Our recipe recommendations will be based on your preferences.</string>
+    <string name="onboarding_all_done_text3">You can always change these in the app\'s settings.</string>
 
 </resources>

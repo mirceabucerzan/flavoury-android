@@ -8,6 +8,7 @@ import androidx.navigation.NavDirections
 import app.flavoury.onboarding.usecases.FlowStep
 import app.flavoury.onboarding.usecases.OnboardingListItem
 import app.flavoury.onboarding.usecases.OnboardingUseCase
+import flavoury.libraries.core.CoreLog
 import flavoury.libraries.core.Result
 import flavoury.libraries.core.UniqueEvent
 import flavoury.libraries.core.domain.User
@@ -91,11 +92,13 @@ internal class OnboardingViewModel(
     fun advanceFlow() {
         if (++currentStepIndex == flowSteps.size) {
             // TODO Finish onboarding
+            CoreLog.d("Onboarding finished.")
         } else if (currentStepIndex < flowSteps.size) {
             _navDirections.value = UniqueEvent(
                 when (flowSteps[currentStepIndex]) {
                     is FlowStep.Diet -> LoadingFragmentDirections.actionLoadingToDiet()
                     is FlowStep.Intolerances -> DietFragmentDirections.actionDietToIntolerances()
+                    is FlowStep.AllDone -> IntolerancesFragmentDirections.actionIntolerancesToAllDone()
                 }
             )
         }

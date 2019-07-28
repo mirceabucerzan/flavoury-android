@@ -45,11 +45,13 @@ internal class OnboardingModel(
 internal sealed class FlowStep {
     object Diet : FlowStep()
     object Intolerances : FlowStep()
+    object AllDone : FlowStep()
 }
 
 internal fun Step.toFlowStep(): FlowStep {
     return when (this) {
         is Step.DietPreference -> FlowStep.Diet
         is Step.IntolerancesPreference -> FlowStep.Intolerances
+        is Step.FinalInfo -> FlowStep.AllDone
     }
 }

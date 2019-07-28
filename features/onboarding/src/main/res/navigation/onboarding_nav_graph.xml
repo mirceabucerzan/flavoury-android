@@ -31,6 +31,16 @@
         android:id="@+id/intolerancesFragment"
         android:name="app.flavoury.onboarding.presentation.IntolerancesFragment"
         android:label="IntolerancesFragment"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_intolerances_to_allDone"
+            app:destination="@id/allDoneFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/allDoneFragment"
+        android:name="app.flavoury.onboarding.presentation.AllDoneFragment"
+        android:label="AllDoneFragment"
+        tools:layout="@layout/fragment_all_done" />
 
 </navigation>

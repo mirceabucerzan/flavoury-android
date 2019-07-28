@@ -35,6 +35,8 @@ internal class OnboardingFlow(user: User) {
             ), user.intolerances
         )
 
+        onboardingSteps += Step.FinalInfo
+
         steps = onboardingSteps
     }
 
@@ -58,4 +60,6 @@ internal sealed class Step {
         val allIntolerances: Set<Intolerance>,
         val userIntolerances: Set<Intolerance>
     ) : Step()
+
+    object FinalInfo : Step()
 }

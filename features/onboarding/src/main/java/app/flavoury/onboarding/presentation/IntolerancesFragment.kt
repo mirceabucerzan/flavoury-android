@@ -5,7 +5,6 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import app.flavoury.onboarding.R
 import app.flavoury.onboarding.usecases.OnboardingListItem
 import kotlinx.android.synthetic.main.fragment_list.*
@@ -30,22 +29,14 @@ internal class IntolerancesFragment : OnboardingFragment(), OnboardingListAdapte
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewLayoutManager: RecyclerView.LayoutManager = GridLayoutManager(context, NUM_COLUMNS)
+        showAdvanceButton()
+        val viewLayoutManager = GridLayoutManager(context, NUM_COLUMNS)
         listAdapter = OnboardingListAdapter(this, false)
         onboarding_list.apply {
             layoutManager = viewLayoutManager
             adapter = listAdapter
         }
-
-        viewModel.intoleranceListItems.observe(viewLifecycleOwner, Observer { listItems ->
-            if (listItems.find { it.selected } != null) {
-                // once a selection is made, give the user the chance to advance the flow
-                showAdvanceButton()
-            } else {
-                hideAdvanceButton()
-            }
-            listAdapter?.submitList(listItems)
-        })
+        viewModel.intoleranceListItems.observe(viewLifecycleOwner, Observer { listAdapter?.submitList(it) })
     }
 
     override fun onItemSelected(item: OnboardingListItem) {
