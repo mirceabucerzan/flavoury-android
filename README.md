@@ -30,11 +30,21 @@ Flavoury is written entirely in Kotlin and uses the Gradle build system. The app
 3. Library modules (`core`): code shared across some or all features ("horizontal slice"); do not depend on any feature or app modules.
 
 <div>
-  <img align="center" src="project_structure.png" alt="Project structure image" height="200" width="133">
+  <img align="center" src="project_structure.png" alt="Project structure image" height="300" width="200">
 </div>
 
 ## Architecture
-// TODO
+When deciding on what approach to take, I've followed the recommendations in the [Guide to app architecture](https://developer.android.com/jetpack/docs/guide). Making use of the [Android Architecture Components](https://developer.android.com/topic/libraries/architecture), I've kept logic away from Activities and Fragments and moved it to [ViewModels](https://developer.android.com/topic/libraries/architecture/viewmodel).
+
+Data was observed through [LiveData](https://developer.android.com/topic/libraries/architecture/livedata), while using the [Data Binding Library](https://developer.android.com/topic/libraries/data-binding) to bind UI elements to the respective data sources.
+
+Data operations are handled by the Repository layer. A thin domain layer rests between the presentation and data layers, which handles business logic off the Main (UI) thread, making use of [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) for asynchronous work. See `UseCase.kt` from the `core` module for details.
+
+Navigation inside feature modules was handled using the [Navigation Component](https://developer.android.com/guide/navigation). Each feature is therefore single-Activity.
+
+<div>
+  <img align="center" src="clean_architecture.png" alt="Clean Architecture image" height="270" width="270">
+</div>
 
 ## Work Management and Issue Tracking
 A Kanban-style [Trello board](https://trello.com/b/PTm6Xphe/flavoury-app) was used for organizing all project work.
