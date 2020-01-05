@@ -1,4 +1,6 @@
 # Flavoury
+[![Build Status](https://travis-ci.com/mirceabucerzan/flavoury-android.svg?branch=master)](https://travis-ci.com/mirceabucerzan/flavoury-android)
+
 Flavoury is an Android application that will allow users to search and discover cooking recipes, while offering a personalized experience, based on dietary preferences and food intolerances. It offers the option to sign in using a Google account, in order to enable remote user data persistence.
 
 <div>
@@ -21,7 +23,7 @@ This project is dependent on Firebase and Google Sign In. For obvious reasons, t
 In order to get things working, you will need to:
 1. [Create a Firebase project and associate the app with it](https://firebase.google.com/docs/android/setup);
 2. [Configure a Google API Console project](https://developers.google.com/identity/sign-in/android/start-integrating#configure_a_project);
-3. Add your Google Web application type client ID to `{user}/.gradle/gradle.properties` with the key `GOOGLE_OAUTH_2_WEB_CLIENT_ID`.
+3. Add your Google Web application type client ID to `~/.gradle/gradle.properties` with the key `GOOGLE_OAUTH_2_WEB_CLIENT_ID` (or as an environment variable).
 
 ## Project Structure
 Flavoury is written entirely in Kotlin and uses the Gradle build system. The app is currently made up of four modules, each belonging to one of three levels:

@@ -6,13 +6,17 @@ apply plugin: 'com.google.gms.google-services'
 android {
     buildTypes {
         release {
-            // Fields defined in the local {user}/.gradle/gradle.properties file
-            buildConfigField "String", "GOOGLE_OAUTH_2_WEB_CLIENT_ID", GOOGLE_OAUTH_2_WEB_CLIENT_ID
+            // Fields defined in the local ~/.gradle/gradle.properties file
+            buildConfigField "String", "GOOGLE_OAUTH_2_WEB_CLIENT_ID",
+                    project.findProperty("GOOGLE_OAUTH_2_WEB_CLIENT_ID")
+                            ?: "\"" + System.getenv("GOOGLE_OAUTH_2_WEB_CLIENT_ID") + "\""
         }
 
         debug {
-            // Fields defined in the local {user}/.gradle/gradle.properties file
-            buildConfigField "String", "GOOGLE_OAUTH_2_WEB_CLIENT_ID", GOOGLE_OAUTH_2_WEB_CLIENT_ID
+            // Fields defined in the local ~/.gradle/gradle.properties file
+            buildConfigField "String", "GOOGLE_OAUTH_2_WEB_CLIENT_ID",
+                    project.findProperty("GOOGLE_OAUTH_2_WEB_CLIENT_ID")
+                            ?: "\"" + System.getenv("GOOGLE_OAUTH_2_WEB_CLIENT_ID") + "\""
         }
     }
 
