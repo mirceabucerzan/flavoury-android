@@ -18,7 +18,9 @@ Flavoury is an Android application that will allow users to search and discover 
 * App Settings
 
 ## Set Up
-This project is dependent on Firebase and Google Sign In. For obvious reasons, the Firebase configuration file (`google-services.json`) was not checked in.
+This project is dependent on Firebase and Google Sign In. For obvious reasons, the real Firebase configuration file (`google-services.json`) was not checked in.
+
+[A dummy config file exists in the `mock/` source set in the `sign_in` feature module in order for CI builds to work.]
 
 In order to get things working, you will need to:
 1. [Create a Firebase project and associate the app with it](https://firebase.google.com/docs/android/setup);

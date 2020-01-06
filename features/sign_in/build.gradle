@@ -20,6 +20,18 @@ android {
         }
     }
 
+    flavorDimensions "version"
+
+    productFlavors {
+        mock {
+            dimension "version"
+        }
+
+        real {
+            dimension "version"
+        }
+    }
+
     dataBinding {
         enabled = true
     }

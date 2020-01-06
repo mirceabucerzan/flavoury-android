@@ -17,6 +17,20 @@ android {
     dataBinding {
         enabled = true
     }
+
+    flavorDimensions "version"
+
+    productFlavors {
+        mock {
+            dimension "version"
+            applicationIdSuffix ".mock"
+            versionNameSuffix "-mock"
+        }
+
+        real {
+            dimension "version"
+        }
+    }
 }
 
 dependencies {
