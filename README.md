@@ -42,7 +42,7 @@ When deciding on what approach to take, I've followed the recommendations in the
 
 Data was observed through [LiveData](https://developer.android.com/topic/libraries/architecture/livedata), while using the [Data Binding Library](https://developer.android.com/topic/libraries/data-binding) to bind UI elements to the respective data sources.
 
-Data operations are handled by the Repository layer. A thin domain layer rests between the presentation and data layers, which handles business logic off the Main (UI) thread, making use of [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) for asynchronous work. See `UseCase.kt` from the `core` module for details.
+Data operations are handled by the Repository layer. A thin domain layer rests between the presentation and data layers, which handles business logic off the Main (UI) thread, making use of [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) for asynchronous work. See [UseCase.kt](/libraries/core/src/main/java/flavoury/libraries/core/UseCase.kt) from the `core` module for details.
 
 Navigation inside feature modules was handled using the [Navigation Component](https://developer.android.com/guide/navigation). Each feature is therefore single-Activity.
 
